@@ -15,13 +15,9 @@ const Footer = (props) => (
   <footer className="footer">
     <ItemsLeft {...props} />
     <ul className="filters">
-      <FilterButton text="All" />
-      <li>
-        <a href="#/active">Active</a>
-      </li>
-      <li>
-        <a href="#/completed">Completed</a>
-      </li>
+      <FilterButton text="All" href="/" {...props} />
+      <FilterButton text="Active" href="/active" {...props} />
+      <FilterButton text="Completed" href="/completed" {...props} />
     </ul>
     <button onClick={props.clearCompleted} className="clear-completed">Clear completed</button>
   </footer>

@@ -1,8 +1,11 @@
 import React from 'react'
 
-const FilterButton = props => (
+import { propEq } from 'ramda'
+import { Link } from 'react-router-dom'
+
+const FilterButton = ({href, text, location}) => (
   <li>
-    <a className="selected" href="#/">{props.text}</a>
+    <Link to={href} className={propEq('pathname', href, location) ? 'selected' : ''}>{text}</Link>
   </li>
 )
 
