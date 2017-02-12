@@ -8,14 +8,14 @@ const enhance = compose(
   withHandlers({ handleChange, handleSubmit })
 )
 
-const NewTodo = ({todo, handleChange, handleSubmit}) => (
+const NewTodo = ({todos, todo, handleChange, handleSubmit}) => (
   <form onSubmit={handleSubmit}>
     <input
       value={todo}
       onChange={handleChange}
       className="new-todo"
       placeholder="What needs to be done?"
-      autoFocus
+      autoFocus={!todos.length}
     />
   </form>
 )

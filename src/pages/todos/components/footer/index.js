@@ -2,7 +2,7 @@ import React from 'react'
 import ItemsLeft from '../items-left'
 import FilterButton from '../filter-button'
 
-import { compose, withHandlers, setDisplayName }  from 'recompose'
+import { compose, withHandlers, setDisplayName } from 'recompose'
 
 import { clearCompleted } from './handlers'
 

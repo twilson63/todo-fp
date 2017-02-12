@@ -12,14 +12,23 @@ The entire app is implemented using stateless functional components.
 > Recompose - A React utility belt for function components and higher-order components.
 > Ramda - A practical functional library for JavaScript programmers
 
+## Dev Setup
+
+- `yarn`
+- `yarn start`
+
+## Run Test
+
+`yarn test`
+
+## Build
+
+`yarn build`
 
 ## Resources
 
-- [Website]()
-- [Documentation]()
-- [Used by]()
-- [Blog]()
-- [FAQ]()
+- [Demo](https://todo-fp.surge.sh)
+- [Documentation](src/)
 
 ### Articles
 
@@ -27,19 +36,13 @@ The entire app is implemented using stateless functional components.
 
 ### Support
 
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/__)
-- [Google Groups]()
-- [Twitter](http://twitter.com/__)
-- [Google+]()
-
-*Let us [know](https://github.com/tastejs/todomvc/issues) if you discover anything worth sharing.*
-
+- [Github](https://github.com/twilson63/todo-fp/issues)
 
 ## Implementation
 
-How was the app created? Anything worth sharing about the process of creating the app? Any spec violations?
-
+The app was created using React 15, Recompose, and Ramda - using
+functional state components.
 
 ## Credit
 
-Created by [Tom Wilson](http://www.jackrussellsoftware.com) 
+Created by [Tom Wilson](http://www.jackrussellsoftware.com)
