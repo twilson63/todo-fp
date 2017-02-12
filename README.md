@@ -21,6 +21,10 @@ The entire app is implemented using stateless functional components.
 
 `yarn test`
 
+## Coverage
+
+`yarn test -- --coverage`
+
 ## Build
 
 `yarn build`
