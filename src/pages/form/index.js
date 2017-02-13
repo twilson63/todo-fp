@@ -1,14 +1,30 @@
 import React from 'react'
-import { map, prop, compose, filter, cond,
+import { map, prop, filter, cond,
   reject, T, propEq, identity } from 'ramda'
 
-import { Header } from '../todos/components'
+import { compose, withState, withHandlers} from 'recompose'
+// import { handleChange, handleSubmit} from './handlers'
 
-const Form = (props) => (
+const enhance = compose(
+  withState('todo', 'updateTodo', ''),
+  withHandlers({
+    handleChange: ({updateTodo}) => event => {
+      updateTodo(event.target.value)
+    }
+  })
+)
+
+
+
+const Form = ({todos, todo, handleChange}) => (
   <div>
-    <Header {...props} />
-    <h1>Hello World!</h1>
+    <h1>New Todo</h1>
+    <form>
+      <input value={todo.description} onChange={handleChange} className="new-todo" placeholder="What needs to be done..." />
+      <input value={todo.outcome} onChange={handleChange} className="new-todo" placeholder="In order to..." />
+      <input value={todo.desire} onChange={handleChange} className="new-todo" placeholder="Because I want to..." />
+    </form>
   </div>
 )
 
-export default Form
+export default enhance(Form)
