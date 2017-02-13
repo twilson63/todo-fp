@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { map, prop, filter, cond,
   reject, T, propEq, identity, prepend } from 'ramda'
 
 import { compose, withState, withHandlers} from 'recompose'
-// import { handleChange, handleSubmit} from './handlers'
 
 const enhance = compose(
-  withState('todos', 'updateTodos', ''),
+  withState('todos', 'updateTodo', []),
   withState('newTodoText', 'updateTodoText', ''),
   withHandlers({
     handleChange: ({updateTodos, field}) => event => {
@@ -16,23 +16,18 @@ const enhance = compose(
     onSubmit: (props) => event => {
       event.preventDefault()
       const newTodo = {
-        id: props.todo.length,
-        description: props.todo.description,
-        outcome: props.todo.outcome,
-        desire: props.todo.desire
-        }
-
-      props.updateTodos(prepend(newTodo, props.todo))
+        id: props.todos.length,
+        description: props.todos.description,
+        outcome: props.todos.outcome,
+        desire: props.todos.desire
+      }
+      console.log(props)
+      props.updateTodo(prepend(newTodo, props.todos))
       props.updateTodoText('')
-      console.log(props.todo)
-
+      console.log(props.todos)
     }
   })
 )
-
-
-
-
 
 const Form = ({todos, todo, handleChange, onSubmit}) => (
   <div>
@@ -43,6 +38,8 @@ const Form = ({todos, todo, handleChange, onSubmit}) => (
       <input value={todos.desire} onChange={handleChange('desire')} className="new-todo" placeholder="Because I want to..." />
       <button>Save</button>
     </form>
+    <button><Link to="/">Cancel</Link></button>
+
   </div>
 )
 
