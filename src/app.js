@@ -5,6 +5,7 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 import { compose, withState } from 'recompose'
 
 import Todos from './pages/todos'
+import Form from './pages/form'
 import Footer from './footer'
 
 const enhance = compose(
@@ -14,7 +15,8 @@ const enhance = compose(
 const App = props => (
   <Router>
   <div>
-    <Route path='/' component={(routerProps) => <Todos {...props} {...routerProps} />} />
+    <Route exact path='/' component={(routerProps) => <Todos {...props} {...routerProps} />} />
+    <Route exact path='/newform' component={(routerProps) => <Form {...props} {...routerProps} />} />
     <Footer />
   </div>
   </Router>

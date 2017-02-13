@@ -17,6 +17,7 @@ const NewTodo = ({todos, todo, handleChange, handleSubmit}) => (
       placeholder="What needs to be done?"
       autoFocus={!todos.length}
     />
+    <span>Foo</span>
   </form>
 )
 
