@@ -1,5 +1,5 @@
-const TodoModel = (text) => ({
-  text,
+const TodoModel = (todoData) => ({
+  ...todoData,
   completed: false,
   edit: false,
   id: (new Date()).toISOString() + Math.random()
