@@ -8,7 +8,6 @@ import { compose, withState, withHandlers} from 'recompose'
 
 const enhance = compose(
   withState('todoData', 'updateTodoData', {}),
-  //withState('todo', '', {})
   withHandlers({
     handleChange: ({updateTodoData, todoData}) => (field) => event => {
       console.log(event)
@@ -24,7 +23,9 @@ const enhance = compose(
     }
   })
 )
+
 const mode = (todo) => todo.id ? 'Edit' : 'New'
+
 const Form = ({todos, todoData, handleChange, onSubmit, mode}) => (
   <div>
     <h1>{mode} Todo</h1>
