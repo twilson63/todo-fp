@@ -21,15 +21,19 @@ changeText, removeTodo}) => (
         checked={propEq('completed', true, todo)}
         onChange={toggleComplete(prop('id', todo))}
       />
-      <label onDoubleClick={editMode(todo.id)}>{todo.text}</label>
+      <label onDoubleClick={editMode(todo.id)}>
+        <h4>{todo.description}</h4>
+        <p><strong>In order to </strong>{todo.outcome}</p>
+        <p><strong>Because I want to </strong>{todo.desire}</p>
+      </label>
       <button onClick={removeTodo(todo.id)} className="destroy"></button>
     </div>
-    <input
+    {/* <input
       value={todo.text}
       onChange={changeText(todo.id)}
       onBlur={cancelEdit}
       className="edit"
-    />
+    /> */}
   </li>
 )
 
