@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Header = (props) => (
   <header className="header">
     <h1>todos</h1>
-    <Link to="/newform" >New Todo</Link>
+    <Link to="/form/new" >New Todo</Link>
     <NewTodo {...props} />
   </header>
 )

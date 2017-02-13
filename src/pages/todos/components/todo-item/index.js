@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { propEq, prop } from 'ramda'
+import { Link } from 'react-router-dom'
 import { compose, withHandlers, setDisplayName } from 'recompose'
 
 import { toggleComplete, editMode, removeTodo,
@@ -26,6 +27,8 @@ changeText, removeTodo}) => (
         <p><strong>In order to </strong>{todo.outcome}</p>
         <p><strong>Because I want to </strong>{todo.desire}</p>
       </label>
+      <Link to={`/form/${todo.id}/edit`}>Edit</Link>
+
       <button onClick={removeTodo(todo.id)} className="destroy"></button>
     </div>
     {/* <input

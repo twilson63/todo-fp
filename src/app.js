@@ -16,7 +16,9 @@ const App = props => (
   <Router>
   <div>
     <Route exact path='/' component={(routerProps) => <Todos {...props} {...routerProps} />} />
-    <Route exact path='/newform' component={(routerProps) => <Form {...props} {...routerProps} />} />
+    <Route exact path='/form/new' component={(routerProps) => <Form {...props} {...routerProps} />} />
+    <Route path='/form/:id/edit' component={(routerProps) => <Form {...props} {...routerProps} />} />
+
     <Footer />
   </div>
   </Router>
