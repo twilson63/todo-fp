@@ -9,9 +9,18 @@ const enhance = compose(
   withState('todos', 'updateTodo', []),
   withState('newTodoText', 'updateTodoText', ''),
   withHandlers({
-    handleChange: ({updateTodos, field}) => event => {
+    handleChange: ({updateTodos, todos}) => field => event => {
+      console.log(event)
+      let val = {todos}
+      val[field] = event.target.value
+      updateTodos({val})
       console.log(field)
-      updateTodos(event.target.value)
+      // let pet = {
+      //          ...this.state.pet
+      //      }
+      //      pet[field] = e.target.value
+      //      this.setState({pet})
+      //  }
     },
     onSubmit: (props) => event => {
       event.preventDefault()
@@ -33,9 +42,9 @@ const Form = ({todos, todo, handleChange, onSubmit}) => (
   <div>
     <h1>New Todo</h1>
     <form onSubmit={onSubmit}>
-      <input value={todos.description} onChange={handleChange('description')} className="new-todo" placeholder="What needs to be done..." />
-      <input value={todos.outcome} onChange={handleChange('outcome')} className="new-todo" placeholder="In order to..." />
-      <input value={todos.desire} onChange={handleChange('desire')} className="new-todo" placeholder="Because I want to..." />
+      <input value={todos.description} onChange={handleChange(todos.description)} className="new-todo" placeholder="What needs to be done..." />
+      <input value={todos.outcome} onChange={handleChange(todos.outcome)} className="new-todo" placeholder="In order to..." />
+      <input value={todos.desire} onChange={handleChange(todos.desire)} className="new-todo" placeholder="Because I want to..." />
       <button>Save</button>
     </form>
     <button><Link to="/">Cancel</Link></button>
