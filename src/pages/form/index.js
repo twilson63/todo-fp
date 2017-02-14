@@ -10,7 +10,6 @@ const enhance = compose(
   withState('todoData', 'updateTodoData', {}),
   withHandlers({
     handleChange: ({updateTodoData, todoData}) => (field) => event => {
-      console.log(event)
       let val = {...todoData}
       val[field] = event.target.value
       updateTodoData(val)
@@ -24,11 +23,9 @@ const enhance = compose(
   })
 )
 
-const mode = (todo) => todo.id ? 'Edit' : 'New'
-
 const Form = ({todos, todoData, handleChange, onSubmit, mode}) => (
   <div>
-    <h1>{mode} Todo</h1>
+    <h1> Todo</h1>
     <form onSubmit={onSubmit}>
       <input value={todoData.description} onChange={handleChange("description")} className="new-todo" placeholder="What needs to be done..." />
       <input value={todoData.outcome} onChange={handleChange("outcome")} className="new-todo" placeholder="In order to..." />
@@ -36,7 +33,6 @@ const Form = ({todos, todoData, handleChange, onSubmit, mode}) => (
       <button>Save</button>
     </form>
     <button><Link to="/">Cancel</Link></button>
-
   </div>
 )
 
